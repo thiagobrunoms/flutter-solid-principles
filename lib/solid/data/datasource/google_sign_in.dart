@@ -1,11 +1,12 @@
+import 'package:flutter_solid/models/credentials.dart';
+import 'package:flutter_solid/models/token_model.dart';
 import 'package:flutter_solid/models/user_model.dart';
 import 'package:flutter_solid/solid/data/datasource/i_authentication.dart';
 
-class GoogleAuth implements IAuthentication {
+class GoogleAuth implements IAuthDatasource {
   @override
-  Future<User> signIn() async {
-    //TODO Google sign in
-    return User(email: '', name: '');
+  Future<User> login({dynamic credentials}) async {
+    return User(email: '', name: '', token: Token(token: 'to123a'));
   }
 
   @override

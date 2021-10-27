@@ -1,22 +1,20 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter_solid/models/credentials.dart';
 import 'package:flutter_solid/models/token_model.dart';
 import 'package:flutter_solid/models/user_model.dart';
 import 'package:flutter_solid/solid/data/datasource/i_authentication.dart';
+import 'package:flutter_solid/solid/data/datasource/i_local_datasource.dart';
 import 'package:flutter_solid/solid/data/datasource/i_token_management.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class UsernamePasswordAuthentication
-    implements IAuthentication, ITokenManagement {
+    implements IAuthDatasource, ITokenManagement {
   final Dio dio;
-  final Credentials credentials;
+  ILocalDatasource? iLocalDatasource;
 
-  UsernamePasswordAuthentication(
-      {required this.dio, required this.credentials});
+  UsernamePasswordAuthentication({required this.dio, this.iLocalDatasource});
 
   @override
-  Future<User> signIn() async {
+  Future<User> login({dynamic credentials}) async {
     try {
       var response =
           await dio.post('api.com', data: json.encode(credentials.toMap()));
@@ -28,20 +26,19 @@ class UsernamePasswordAuthentication
   }
 
   @override
-  Future<bool> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<bool> logout() async {
+    print('do logout!');
+    return true;
   }
 
   @override
-  Future<Token> refresh() {
-    // TODO: implement refresh
-    throw UnimplementedError();
+  Future<Token> refresh() async {
+    print('do refresh token!');
+    return Token(token: '3445@');
   }
 
   @override
   Future<bool> save(Token token) async {
-    SharedPreferences p = await SharedPreferences.getInstance();
-    return p.setString('token', json.encode(token.toMap()));
+    return await iLocalDatasource!.write(token.toMap());
   }
 }

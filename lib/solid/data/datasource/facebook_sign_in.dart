@@ -1,11 +1,11 @@
+import 'package:flutter_solid/models/token_model.dart';
 import 'package:flutter_solid/models/user_model.dart';
 import 'package:flutter_solid/solid/data/datasource/i_authentication.dart';
 
-class FacabookAuth implements IAuthentication {
+class FacabookAuth implements IAuthDatasource {
   @override
-  Future<User> signIn() async {
-    //TODO Facebook sign in
-    return User(name: '', email: '');
+  Future<User> login({dynamic credentials}) async {
+    return User(name: '', email: '', token: Token(token: 'as21@!3'));
   }
 
   @override
