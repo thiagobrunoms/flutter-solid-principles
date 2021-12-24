@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_solid/solid/data/datasource/facebook_sign_in.dart';
@@ -8,9 +7,9 @@ import 'package:flutter_solid/solid/data/repository/auth_repository.dart';
 import 'package:flutter_solid/solid/domain/usecases/facebook_signin_usecase.dart';
 import 'package:flutter_solid/solid/domain/usecases/google_signin_usecase.dart';
 import 'package:flutter_solid/solid/domain/usecases/username_password_login_usecase.dart';
-import 'package:flutter_solid/solid/view/widgets/auth_controller.dart';
-import 'package:flutter_solid/solid/view/widgets/login_button_widget.dart';
-import 'package:flutter_solid/solid/view/widgets/my_textform_input.dart';
+import 'package:flutter_solid/solid/presentation/widgets/auth_controller.dart';
+import 'package:flutter_solid/solid/presentation/widgets/login_button_widget.dart';
+import 'package:flutter_solid/solid/presentation/widgets/my_textform_input.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -70,21 +69,21 @@ class AuthPageState extends State<AuthPage> {
   }
 
   Future<void> doGoogleLogin() async {
-    controller = AuthController(
-        googleLoginUsecase: GoogleLoginUsecase(AuthRepository(GoogleAuth())));
+    // controller = AuthController(
+    //     iLoginUsecase: GoogleLoginUsecase(AuthRepository(GoogleAuth())));
 
-    await controller.doGoogleLogin();
+    // await controller.doGoogleLogin();
   }
 
   Future<void> doFacebookLogin() async {
-    controller = AuthController(
-        facebookLoginUsecase:
-            FacebookLoginUsecase(AuthRepository(FacabookAuth())));
+    // controller = AuthController(
+    //     iLoginUsecase: FacebookLoginUsecase(AuthRepository(FacabookAuth())));
 
-    await controller.doFacebookLogin();
+    // await controller.doFacebookLogin();
   }
 
   Future<void> fireEmailPasswordLogin() async {
+    print('validando senha');
     if (!isEmailValid()) {
       setState(() {
         usernameErrorText = "Usuário inválido!";
@@ -112,10 +111,11 @@ class AuthPageState extends State<AuthPage> {
   }
 
   Future<void> doUsernamePasswordLogin() async {
-    controller = AuthController(
-        usernamePasswordLoginUsecase: UsernamePasswordLoginUsecase(
-            AuthRepository(UsernamePasswordAuthentication(dio: Dio()))));
+    // print('login com usuario/senha');
+    // controller = AuthController(
+    //     iLoginUsecase: UsernamePasswordLoginUsecase(
+    //         AuthRepository(UsernamePasswordAuthentication(dio: Dio()))));
 
-    await controller.doGoogleLogin();
+    // await controller.doGoogleLogin();
   }
 }

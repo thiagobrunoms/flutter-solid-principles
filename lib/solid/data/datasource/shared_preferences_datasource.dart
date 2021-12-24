@@ -4,7 +4,8 @@ import 'dart:convert';
 import 'package:flutter_solid/solid/data/datasource/i_local_datasource.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPreferencesDatasource implements ILocalDatasource<Map> {
+class SharedPreferencesDatasource
+    implements ILocalDatasource<Map<String, dynamic>> {
   final String key = 'token';
   late SharedPreferences instance;
   Completer completer = Completer();

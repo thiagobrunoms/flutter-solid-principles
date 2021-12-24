@@ -7,4 +7,8 @@ class Credentials {
   Map<String, dynamic> toMap() {
     return {'username': username, 'password': password};
   }
+
+  get isValidUsername => username.isNotEmpty;
+
+  get isValidPassword => password.isNotEmpty && password.length >= 5;
 }

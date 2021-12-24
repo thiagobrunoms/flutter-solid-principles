@@ -1,6 +1,6 @@
 import 'package:flutter_solid/models/token_model.dart';
 import 'package:flutter_solid/solid/data/datasource/i_token_management.dart';
-import 'package:flutter_solid/solid/data/repository/i_token_repository.dart';
+import 'package:flutter_solid/solid/domain/repository/i_token_repository.dart';
 
 class TokenRepository implements ITokenRepository {
   final ITokenManagement tokenManagement;
@@ -9,7 +9,8 @@ class TokenRepository implements ITokenRepository {
 
   @override
   Future<Token> refresh() async {
-    return await tokenManagement.refresh();
+    // return await tokenManagement.refresh();
+    return Token(token: "12");
   }
 
   @override
