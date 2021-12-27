@@ -12,7 +12,9 @@ abstract class AbstractCard {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
+            Text('Name: ${employee.name}'),
             build(),
+            Text('Salário: ${employee.calculateSalary()}')
           ],
         ),
       ),

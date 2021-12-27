@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_solid/design_patterns/factory_method/view/card_list_page.dart';
 import 'package:flutter_solid/design_patterns/flyweight/presentation/users_page.dart';
 import 'package:flutter_solid/design_patterns/memento/view/shapes_page_view.dart';
 import 'package:flutter_solid/design_patterns/prototype/prototype_page.dart';
 import 'package:flutter_solid/design_patterns/proxy/video_page.dart';
+import 'package:flutter_solid/design_patterns/strategy/page/strategy_page.dart';
 import 'package:flutter_solid/fix-solid/page/auth_page_solid.dart';
 import 'package:flutter_solid/non-solid/page/auth_page.dart';
 
@@ -22,12 +24,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home:
-            AuthPageSolid() //MementoShapePageView() //UserList() //VideoServicePage() //AuthPage(),
-        );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home:
+          const StrategyPage(), //CardListPage(), //AuthPageSolid() //MementoShapePageView() //UserList() //VideoServicePage() //AuthPage(),
+    );
   }
 }

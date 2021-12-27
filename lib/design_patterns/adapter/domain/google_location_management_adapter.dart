@@ -1,19 +1,19 @@
 import 'package:flutter_solid/design_patterns/adapter/domain/i_location_management.dart';
 import 'package:flutter_solid/design_patterns/adapter/domain/entities/location.dart';
-import 'package:location/location.dart' as google;
+import 'package:location/location.dart';
 
 class GoogleLocationManagerAdapter implements ILocationManagement {
-  google.Location? googleLocation;
+  Location? googleLocation;
 
   GoogleLocationManagerAdapter() {
-    googleLocation = google.Location.instance;
+    googleLocation = Location.instance;
   }
 
   @override
-  Future<Location> getLocation() async {
-    google.LocationData? locationData = await googleLocation?.getLocation();
+  Future<MyLocation> getLocation() async {
+    LocationData? locationData = await googleLocation?.getLocation();
 
-    return Location.fromMap({
+    return MyLocation.fromMap({
       'latitude': locationData?.latitude,
       'longitude': locationData?.longitude
     });

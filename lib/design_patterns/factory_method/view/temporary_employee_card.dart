@@ -7,8 +7,6 @@ class TemporaryEmployeeCard extends AbstractCard {
 
   @override
   Widget build() {
-    return Row(
-      children: [Text('Name: ${employee.name}'), const Icon(Icons.timelapse)],
-    );
+    return const Icon(Icons.timelapse);
   }
 }

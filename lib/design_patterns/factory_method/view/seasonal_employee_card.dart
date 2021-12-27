@@ -7,11 +7,6 @@ class SeasonalEmployeeCard extends AbstractCard {
 
   @override
   Widget build() {
-    return Row(
-      children: [
-        Text('Name: ${employee.name}'),
-        const Icon(Icons.calendar_today)
-      ],
-    );
+    return const Icon(Icons.calendar_today);
   }
 }
