@@ -37,6 +37,6 @@ class BreadthFirstIterator implements MyIterator<int> {
 
   @override
   void reset() {
-    // TODO: implement reset
+    elements = [];
   }
 }
