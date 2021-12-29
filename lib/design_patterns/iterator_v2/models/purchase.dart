@@ -1,6 +1,6 @@
 import 'package:flutter_solid/design_patterns/iterator_v2/models/address.dart';
 
-class Purchase implements Comparable<DateTime> {
+class Purchase implements Comparable<Purchase> {
   final Address address;
   final DateTime date;
 
@@ -10,10 +10,10 @@ class Purchase implements Comparable<DateTime> {
       (a, b) => a.address.distance.compareTo(b.address.distance);
 
   @override
-  int compareTo(DateTime other) {
-    if (date.isBefore(other)) return -1;
+  int compareTo(Purchase other) {
+    if (date.isBefore(other.date)) return -1;
 
-    if (date.isAfter(other)) return 1;
+    if (date.isAfter(other.date)) return 1;
 
     return 0;
   }

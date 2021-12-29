@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_solid/design_patterns/factory_method/view/card_list_page.dart';
 import 'package:flutter_solid/design_patterns/flyweight/presentation/users_page.dart';
+import 'package:flutter_solid/design_patterns/iterator_v2/page/delivery_page.dart';
 import 'package:flutter_solid/design_patterns/memento/view/shapes_page_view.dart';
 import 'package:flutter_solid/design_patterns/prototype/prototype_page.dart';
 import 'package:flutter_solid/design_patterns/proxy/video_page.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
-          const StrategyPage(), //CardListPage(), //AuthPageSolid() //MementoShapePageView() //UserList() //VideoServicePage() //AuthPage(),
+          const DeliveryProcessPage(), //const StrategyPage(), //CardListPage(), //AuthPageSolid() //MementoShapePageView() //UserList() //VideoServicePage() //AuthPage(),
     );
   }
 }
