@@ -13,8 +13,7 @@ class FacabookAuth implements IAuthDatasource {
   }
 
   @override
-  Future<bool> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<bool> logout() async {
+    return true;
   }
 }
