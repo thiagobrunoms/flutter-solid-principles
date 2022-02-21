@@ -17,8 +17,7 @@ class UsernamePasswordAuthentication
   @override
   Future<User> login({Credentials? credentials}) async {
     print('datasource: login com login/senha');
-    return User(
-        email: 'thiago@gmas.com', token: Token(token: '12!@#'), name: 'Thiago');
+    return User(email: 'thiago@gmas.com', name: 'Thiago');
     // try {
     //   var response =
     //       await dio.post('api.com', data: json.encode(credentials?.toMap()));

@@ -6,7 +6,10 @@ class FacabookAuth implements IAuthDatasource {
   @override
   Future<User> login({dynamic credentials}) async {
     print('datasource: login com facebook');
-    return User(name: '', email: '', token: Token(token: 'as21@!3'));
+    return User(
+      name: '',
+      email: '',
+    );
   }
 
   @override

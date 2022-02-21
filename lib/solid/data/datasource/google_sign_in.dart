@@ -7,7 +7,7 @@ class GoogleAuth implements IAuthDatasource {
   @override
   Future<User> login({dynamic credentials}) async {
     print('datasource: login com google');
-    return User(email: '', name: '', token: Token(token: 'to123a'));
+    return User(email: '', name: '');
   }
 
   @override
